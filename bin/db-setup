@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set +e
+
+createuser -d postgres || true
+dropdb fusion_development || true
+dropdb fusion_test || true
+createdb -U postgres fusion_development
+createdb -U postgres fusion_test
