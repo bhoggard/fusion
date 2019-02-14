@@ -6,3 +6,6 @@ CREATE TABLE authors (
 );
 
 CREATE UNIQUE INDEX authors_name on authors (name);
+
+INSERT INTO authors (id, name) values (1, 'N.K. Jemisin');
+
