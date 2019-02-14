@@ -1,0 +1,97 @@
+### Scala template
+*.class
+*.jar
+# sbt specific
+target/
+lib_managed/
+src_managed/
+project/boot/
+.cache
+.lib/
+dist/*
+project/plugins/project/
+.sbtserver
+project/.sbtserver.lock
+
+# Scala-IDE specific
+.scala_dependencies
+.worksheet
+
+# IntelliJ project files
+.idea
+out
+gen
+
+### OSX template
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+### Windows template
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# RVM
+*.rvmrc
+
+
+native
+
+# ensime
+.ensime
+.ensime_cache
+
+# env for dev work
+.env
+
+# Editor
+.history
+.project
+.tags
+
+!.gitkeep
+
+*.log
+
+scripts/websocket-integration-test/node_modules
+
+# VSCode metals plugin
+.bloop
+.metals
