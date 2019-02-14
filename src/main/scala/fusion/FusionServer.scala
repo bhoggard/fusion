@@ -1,15 +1,18 @@
-package example
+package fusion
 
 import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.model._
 import akka.http.scaladsl.server.Directives._
+import slick.jdbc.JdbcBackend
 import slick.jdbc.JdbcBackend.Database
+
 import scala.io.StdIn
 
 object FusionServer {
-  implicit val db = Database.forConfig("slick.db")
+  implicit val db: JdbcBackend.Database = Database.forConfig("slick.db")
+  lazy val repo                         = new AnormRepo()
 
   def main(args: Array[String]) {
 
@@ -28,6 +31,7 @@ object FusionServer {
         }
       }
 
+    println(repo.loadAuthor(1))
     val bindingFuture = Http().bindAndHandle(route, "localhost", 8080)
 
     println(s"Server online at http://localhost:8080/\nPress RETURN to stop...")
