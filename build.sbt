@@ -21,9 +21,11 @@ lazy val root = (project in file("."))
       "com.typesafe.slick"      %% "slick-hikaricp" % slickVersion, // ..
       "com.github.tminglei"     %% "slick-pg" % slickPgVersion, // ..
       "com.github.tminglei"     %% "slick-pg_spray-json" % slickPgVersion, // ..
+      "org.postgresql"                % "postgresql"                         % "42.2.4", // For database access
       "com.typesafe.akka"       %% "akka-stream" % akkaV, // Actors -- needed for Akka HTTP
       "com.typesafe.akka"       %% "akka-http" % akkaHttpV, // API framework
       "com.typesafe.akka"       %% "akka-http-spray-json" % akkaHttpV, // ..
+      "org.flywaydb" % "flyway-core" % "5.2.4" % Test,
       scalaTest                 % Test
     )
   )
@@ -35,3 +37,4 @@ val appConfig = com.typesafe.config.ConfigFactory.parseFile(new File("src/main/r
 flywayUrl := appConfig.getString("slick.db.url")
 flywayUser := appConfig.getString("slick.db.user")
 flywayPassword := appConfig.getString("slick.db.password")
+flywayUrl in Test := "jdbc:postgresql://localhost/fusion_test"

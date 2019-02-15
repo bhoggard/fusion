@@ -25,6 +25,7 @@ class AnormRepo(implicit db: JdbcBackend.Database) {
 
   private def withConnection[A](block: Connection ⇒ A): A = {
     val connection = getConnection()
+    println(connection.getCatalog)
     try {
       block(connection)
     } finally {
